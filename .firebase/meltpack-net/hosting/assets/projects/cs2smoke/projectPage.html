@@ -48,9 +48,11 @@
 
     <p class = "overviewText">As is in most 3D software, raytracing isn't a trivial task, and can take quite a bit of performance to pull off. From this, the two factors I needed to worry about
         was the resolution of the screen (influencing just how many times that process is executed per frame. 2073600 times for the average 1920x1080 monitor), and the number of steps it's performing when
-        marching forward. Based on this, the main optimisations I could make were:
-        • When marching forward, each sample is beforehand checked to see if the density is more than a certain amount. If it isn't, this means there's little smoke at that point anyway, and what's rendered will be hardly visible. In this case, the code that checks to see how much light from the sun hits that point also is not run, because it isn't really noticable.
-        • Additionally, when accumulating smoke samples, if the total amount of smoke we've added up exceeds 1, the march ends right there. 1 means the pixel will be totally filled with smoke, and marching any further won't have any effect at all. This is a really efficient way of increasing performance.
-        • I also <i>downscale</i> the screen's output texture before running this code, by up to around 50%. This cuts down the number of times we run the entire shader, as there's less pixels to do it on. Once the output is compiled, it is resized up to full size. The downside of this is that if done too far, it can affect the visual fidelity of the smoke. 
+        marching forward. Based on this, the main optimisations I could make were:<br>
+        <ul>
+            <li>When marching forward, each sample is beforehand checked to see if the density is more than a certain amount. If it isn't, this means there's little smoke at that point anyway, and what's rendered will be hardly visible. In this case, the code that checks to see how much light from the sun hits that point also is not run, because it isn't really noticable.</li>
+            <li>Additionally, when accumulating smoke samples, if the total amount of smoke we've added up exceeds 1, the march ends right there. 1 means the pixel will be totally filled with smoke, and marching any further won't have any effect at all. This is a really efficient way of increasing performance.</li>
+            <li>I also <i>downscale</i> the screen's output texture before running this code, by up to around 50%. This cuts down the number of times we run the entire shader, as there's less pixels to do it on. Once the output is compiled, it is resized up to full size. The downside of this is that if done too far, it can affect the visual fidelity of the smoke. </li>
+          </ul>
     </p>
 </div>

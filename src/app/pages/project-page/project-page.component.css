@@ -6,7 +6,7 @@ body
 .headerText
 {
     width: 100%;
-    background-color: #ffea00;
+    background-color: var(--keyYellow);
     margin-top: 10vh;
     box-sizing: border-box;
     color: black;
@@ -28,7 +28,7 @@ code
 }
 .overviewSheet
 {
-    background-color: #ffea00;
+    background-color: var(--keyYellow);
 }
 
 .overviewTag
@@ -38,7 +38,7 @@ code
     --rounding: 5px;
     font-family: 'MADE', sans-serif;
     font-size: 25px;
-    color: #ffea00;
+    color: var(--keyYellow);
     background-color: black;
     border-radius: var(--rounding);
     padding-inline: var(--rounding);
@@ -162,7 +162,7 @@ code
     .headerText
     {
         width: 100%;
-        background-color: #ffea00;;
+        background-color: var(--keyYellow);
         margin-top: 10vh;
         box-sizing: border-box;
         color: black;
@@ -195,7 +195,7 @@ code
     {
         margin: 0;
         margin-bottom: 100%;
-        color:#ffea00;
+        color:var(--keyYellow);
         font-family: 'MADE', sans-serif;
         font-size: 30px;
     }
@@ -233,7 +233,7 @@ code
     margin-top: 25px;
     height: fit-content;
     margin-bottom: 10px;
-    background-color: #ffea00;
+    background-color: var(--keyYellow);
 }
 
 .section
@@ -277,7 +277,7 @@ code
 .picCaption
 {
     margin: 0;
-    color:#ffea00;
+    color:var(--keyYellow);
     font-family: 'MADE', sans-serif;
     font-size: 18px;
     height: fit-content;
@@ -290,18 +290,18 @@ code
     margin: 0;
     margin-top:25px;
     overflow: auto;
-    color:#ffea00;
+    color:var(--keyYellow);
     font-family: 'MADE', sans-serif;
     text-align: justify;
     font-size: 22px;
 }
 
-.overviewText
+li, .overviewText
 {
     margin: 0;
     margin-top: 25px;
     margin-bottom: 25px;
-    color:#ffea00;
+    color:var(--keyYellow);
     font-family: 'MADE', sans-serif;
     text-align: justify;
     font-size: 22px;
