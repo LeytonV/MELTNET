@@ -1,0 +1,26 @@
+<p class = "categoryHeader">MY GAMES</p>
+<div class = "categoryUnderline"></div>
+<div class = "itemList">
+    @for(game of games; track $index)
+    {
+        <app-project-item [referenceProject]="game"></app-project-item>
+    }
+</div>
+
+<p class = "categoryHeader">MY TOOLS</p>
+<div class = "categoryUnderline"></div>
+<div class = "itemList">
+    @for(tool of tools; track $index)
+    {
+        <app-project-item [referenceProject]="tool"></app-project-item>
+    }
+</div>
+
+<p class = "categoryHeader">OTHER</p>
+<div class = "categoryUnderline"></div>
+<div class = "itemList">
+    @for(other of others; track $index)
+    {
+        <app-project-item [referenceProject]="other"></app-project-item>
+    }
+</div>

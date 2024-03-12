@@ -1,0 +1,67 @@
+<p class = "headerText">{{referenceProject?.name}}</p>
+    <div class = "section">
+        <div class = "titleLabel">
+            <p class = "title">PROJECT OVERVIEW</p>
+        </div>
+        <div class = "subTextHolder">
+            <div class = "overview">
+                <img class = "overviewImage" src="{{projectsService.projectCoverURL(this.referenceProject!)}}">
+                <div class = "overviewSheet">
+                    <p class = "overviewSectionDescription">{{referenceProject?.description}}</p>
+                    <div class = "overviewDivider"></div>
+                    @if(referenceProject?.links?.length! > 0)
+                    {
+                        <div class = "overviewSection">
+                            <p class = "overviewSectionTitle">GET IT:</p>
+                            <div class="overviewLinks">
+                                @for(link of referenceProject?.links; track $index)
+                                {
+                                    <a href="{{link}}"><img class = "overviewIcon" src="assets\social\overview-sites\itchio.png" alt=""></a>
+                                }
+                            </div>
+                        </div>
+                        <div class = "overviewDivider"></div>
+                    }
+
+                    @if(referenceProject?.toolsUsed?.length! > 0)
+                    {
+                        <div class = "overviewSection">
+                            <p class = "overviewSectionTitle">TOOLS<br>USED:</p>
+                            <div class="overviewTagList">
+                                @for(tool of referenceProject?.toolsUsed; track $index)
+                                {
+                                    <p class = "overviewTag">{{tool}}</p>
+                                }
+                            </div>
+                        </div>
+                        <div class = "overviewDivider"></div>
+                    }
+
+                    @if(referenceProject?.skillsUsed?.length! > 0)
+                    {
+                        <div class = "overviewSection">
+                            <p class = "overviewSectionTitle">TOOLS<br>USED:</p>
+                            <div class="overviewTagList">
+                                @for(skill of referenceProject?.skillsUsed; track $index)
+                                {
+                                    <p class = "overviewTag">{{skill}}</p>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div [innerHTML]="this.projectHTML" [classList]=""></div>
+
+    @if(this.referenceProject?.mediaURLS?.length! > 1)
+    {
+        <div class = "section">
+            <div class = "titleLabel">
+                <p class = "title">MEDIA</p>
+            </div>
+            <app-media-display [project]="this.referenceProject"></app-media-display>
+        </div>
+    }

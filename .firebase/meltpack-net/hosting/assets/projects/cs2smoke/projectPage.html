@@ -1,0 +1,56 @@
+<div class = "section">
+    <p class = "summaryText">
+        After seeing the Interactive Smokes in the upcoming Counter-Strike 2 game, that deform to their environment and blast apart when grenades and bullets perforate them, I became inspired to try and recreate this myself.
+    </p>
+    <div class = "titleLabel">
+        <p class = "title">THE NITTY GRITTY</p>
+    </div>
+    <p class = "overviewText">At its core, the smoke field is a three-dimensional array of cells. Each cell has a floating point (or simply put, decimal number) representing its density.
+        A compute shader then is dispatched, given a list of smoke grenades, and their radius, and loops through each cell, calculating its distance from every grenade. The reason I used a compute shader,
+        over the CPU, is because the CPU can easily get bogged down, especially when dealing with big datasets like this. A three dimensional array can grow exponentially in size really quickly, and GPUs are
+        made to work in parallel.
+    </p>
+
+    <p class = "overviewText"><br>We then repeat this distance calculation, but instead of smoke sources, we're now doing it for smoke destroyers. Stuff like bullets, grenades, anything else
+        that can remove smoke from an area. We can subtract the destroyer distance from the distance to the smoke grenades, allowing us to carve out
+        shapes.
+
+        This data is packed into a 3D texture, where each pixel's brightness is equal to the final distance value. For this, I use a single-channel texture, and rather than
+        a full float, I use a half. This massively drops the memory cost of the texture.
+    </p>
+    <div class = "titleLabel">
+        <p class = "title">THE RENDERING</p>
+    </div>
+
+    <p class = "overviewText">Raymarching is a difficult subject to fully and accurately explain, but I can give a run-down of what's going on.
+        The smoke is a screen-space shader, that shoots a line through a box in the camera's direction, taking note of the entry and exit points. This is the box that the smoke exists in.
+
+        Then, I "march" forward in the direction of the camera, bit by bit, sampling the smoke at each point and totaling it up, then stepping forward again. This is where I add randomness to what's
+        sampled, to give the impression of smoke and not just a solid surface.
+    </p>
+
+    <p class = "overviewText">In order to get lighting, I then run a SECOND set of samples, but in the direction of the sun, from the sample point. This is a similar process to what I wrote above,
+        and when ready to render, this is what determines how much light the smoke gets.
+    </p>
+
+    <p class = "overviewText">I can then use a concept called the "Beer-Lambert law" to determine, based on how much smoke we've totaled, how visible the smoke is.This equation is the foundation of fog and other density accumulation effects in games, as it's fairly simple to compute and is quite accurate to the real world.
+        In code, it looks like this: <code>exponential(-densityAtPoint x absorptionPerParticle)</code>
+    </p>
+
+    <div class="pictureContainer">
+        <img src="assets/projects/cs2smoke/beerlaw.png" alt="" class="picture">
+        <p class="picCaption">Beer's Law, plotted on a graph. y is total smoke content, x is densityAtPoint, multiplied by an absorptionPerParticle of 0.2.</p>
+    </div>
+
+    <div class = "titleLabel">
+        <p class = "title">Optimisations</p>
+    </div>
+
+    <p class = "overviewText">As is in most 3D software, raytracing isn't a trivial task, and can take quite a bit of performance to pull off. From this, the two factors I needed to worry about
+        was the resolution of the screen (influencing just how many times that process is executed per frame. 2073600 times for the average 1920x1080 monitor), and the number of steps it's performing when
+        marching forward. Based on this, the main optimisations I could make were:
+        • When marching forward, each sample is beforehand checked to see if the density is more than a certain amount. If it isn't, this means there's little smoke at that point anyway, and what's rendered will be hardly visible. In this case, the code that checks to see how much light from the sun hits that point also is not run, because it isn't really noticable.
+        • Additionally, when accumulating smoke samples, if the total amount of smoke we've added up exceeds 1, the march ends right there. 1 means the pixel will be totally filled with smoke, and marching any further won't have any effect at all. This is a really efficient way of increasing performance.
+        • I also <i>downscale</i> the screen's output texture before running this code, by up to around 50%. This cuts down the number of times we run the entire shader, as there's less pixels to do it on. Once the output is compiled, it is resized up to full size. The downside of this is that if done too far, it can affect the visual fidelity of the smoke. 
+    </p>
+</div>

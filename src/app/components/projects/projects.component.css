@@ -1,0 +1,37 @@
+.categoryHeader
+{
+    box-sizing: border-box;
+    color: var(--keyYellow);
+    font-family: 'MADE', sans-serif;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.categoryUnderline
+{
+    margin: 0px;
+    height: 5px;
+    width: 100%;
+    background-color: var(--keyYellow);
+}
+
+
+.itemList
+{
+    --spacing: 25px;
+    display: flex;
+    flex-wrap:wrap;
+    gap: var(--spacing);
+    margin-top: var(--spacing);
+}
+
+@media (max-width:831px)
+{
+    .itemList
+    {
+        justify-items: center;
+        justify-content: center;
+    }
+}

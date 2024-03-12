@@ -1,0 +1,111 @@
+.softwareExperienceTitle
+{
+    width: 100%;
+    margin: 0;
+    margin-block: 20px;
+    box-sizing: border-box;
+    color: var(--keyYellow);
+    font-family: 'MADE', sans-serif;
+    font-size: 35px;
+    text-align: center;
+}
+
+.subtitle
+{
+    margin: 0;
+    margin-top: 40px;
+    box-sizing: border-box;
+    color:var(--keyYellow);
+    font-family: 'MADE', sans-serif;
+    font-size: 45px;
+    text-align: center;
+}
+
+.experienceList
+{
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.experienceItem
+{
+    width: fit-content;
+    grid-template-columns: 50% 50%;
+    margin: auto;
+    margin-top: 0;
+}
+
+.experienceIcon
+{
+    display: block;
+    margin: auto;
+    height: 150px;
+}
+
+.experienceName
+{
+    height: fit-content;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    color:var(--keyYellow);
+    font-family: 'MADE', sans-serif;
+    font-size: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    width:100%;
+}
+
+.experienceDate
+{
+    height: fit-content;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color:var(--keyYellow);
+    font-family: 'MADE', sans-serif;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.experienceText
+{
+    height: fit-content;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color:var(--keyYellow);
+    font-family: 'MADE', sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.aboutMeDescription
+{
+    padding-left: 20px;
+    width: 75%;
+    margin: auto;
+    margin: auto;
+    height: fit-content;
+    align-self: center;
+    box-sizing: border-box;
+    color:var(--keyYellow);
+    font-family: 'MADE', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+@media (max-width:831px)
+{
+    .experienceList
+    {
+        justify-items: center;
+    }
+}

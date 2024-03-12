@@ -1,0 +1,308 @@
+body
+{
+    background-color: black;
+}
+
+.headerText
+{
+    width: 100%;
+    background-color: #ffea00;
+    margin-top: 10vh;
+    box-sizing: border-box;
+    color: black;
+    font-family: 'MADE', sans-serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+code
+{
+    padding-inline: 0.25em;
+    padding-block: 1px;
+    background-color: #262626;
+    border-radius: 0.25em;
+    font-family: "CONSOLA", sans-serif;
+    font-size: 90%;
+    color: #e3e3e3;
+    outline: solid #adadad 2px;
+}
+.overviewSheet
+{
+    background-color: #ffea00;
+}
+
+.overviewTag
+{
+    margin: 0;
+    padding: 0;
+    --rounding: 5px;
+    font-family: 'MADE', sans-serif;
+    font-size: 25px;
+    color: #ffea00;
+    background-color: black;
+    border-radius: var(--rounding);
+    padding-inline: var(--rounding);
+    width: fit-content;
+    height: fit-content;
+}
+
+.overviewSectionTitle
+{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+
+    font-family: 'MADE', sans-serif;
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+.overviewSectionDescription
+{
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+    font-weight: normal;
+
+    font-family: 'MADE', sans-serif;
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.overviewIcon
+{
+    display: block;
+    height: 40px;
+    align-self: center;
+    color: black;
+}
+
+.overviewDivider
+{
+    margin:auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 3px solid black;
+    width: 90%;
+}
+
+/* DESKTOP VIEW */
+@media (min-width: 900px)
+{
+    /*OVERVIEW STUFF*/
+    .overview
+    {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        overflow: hidden;
+    }
+    .overviewImage
+    {
+        height: 500px;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .overviewSection
+    {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 5px;
+    }
+
+    .overviewTagList
+    {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .triplePic
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .keyGif
+    {
+        display: block;
+        width: min(100%, 800px);
+        margin:auto;
+    }
+
+    .singleImage
+    {
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dualPic
+    {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 100%;
+        height: fit-content;
+    }
+}
+
+/* MOBILE VIEW */
+@media (max-width: 900px)
+{
+    /*OVERVIEW STUFF*/
+
+    .overviewImage
+    {
+        width: 100%;
+    }
+
+    .headerText
+    {
+        width: 100%;
+        background-color: #ffea00;;
+        margin-top: 10vh;
+        box-sizing: border-box;
+        color: black;
+        font-family: 'MADE', sans-serif;
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .overviewIcon
+    {
+        padding-left: 10px;
+    }
+
+    .overviewTagList
+    {
+        flex-wrap: wrap;
+        gap: 5px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    .overviewSection
+    {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 5px;
+    }
+
+    .subText
+    {
+        margin: 0;
+        margin-bottom: 100%;
+        color:#ffea00;
+        font-family: 'MADE', sans-serif;
+        font-size: 30px;
+    }
+
+    .triplePic
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .keyGif
+    {
+        width: 100%;
+    }
+
+    .singleImage
+    {
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dualPic
+    {
+        width: 100%;
+        height: fit-content;
+    }
+}
+
+.titleLabel
+{
+    margin-top: 25px;
+    height: fit-content;
+    margin-bottom: 10px;
+    background-color: #ffea00;
+}
+
+.section
+{
+    width: 75vw;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.title
+{
+    margin: 0;
+    margin-left: 20px;
+    text-align: left;
+    vertical-align: middle;
+    padding-right: 15px;
+    color:black;
+    font-family: 'MADE', sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+}
+.pictureContainer
+{
+    width: 100%;
+    height: 100%;
+    align-self: self-end;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
+    align-items: center
+}
+
+.picture
+{
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.picCaption
+{
+    margin: 0;
+    color:#ffea00;
+    font-family: 'MADE', sans-serif;
+    font-size: 18px;
+    height: fit-content;
+    width: 100%;
+    text-align: center;
+}
+
+.summaryText
+{
+    margin: 0;
+    margin-top:25px;
+    overflow: auto;
+    color:#ffea00;
+    font-family: 'MADE', sans-serif;
+    text-align: justify;
+    font-size: 22px;
+}
+
+.overviewText
+{
+    margin: 0;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color:#ffea00;
+    font-family: 'MADE', sans-serif;
+    text-align: justify;
+    font-size: 22px;
+}

@@ -1,0 +1,25 @@
+<div class = "section">
+    <p class = "summaryText">
+        WallPen is a tool I created to help with creating interior levels for unity. Modelling walls, and corners, and all kinds
+        of joins just to have to painstakingly pixel-perfect align them was tedious. I did reuse some of HEADACHE's code for this, which sped things up a lot
+        as HEADACHE actually has this built into the level generator at runtime, which is fun.
+    </p>
+    <div class = "titleLabel">
+        <p class = "title">THE NITTY GRITTY</p>
+    </div>
+    <p class = "overviewText">
+        The addon is a floating editor window, that is created through <code>ScriptableObject.Create</code> rather than <code>EditorWindow.GetWindow</code>. 
+            This effectively does the same thing, but where GetWindow creates a actual floating window, ScriptableObject.Create doesn't. But it does create an 
+            <i>INSTANCE</i> of the window, allowing me to run stuff like OnSceneGUI, which creates buttons in the top left of the viewport.
+    </p>
+    <p class = "overviewText">
+        As for how the actual tool works, we project the mouse point onto a invisible plane at (0,0,0), giving us the world-space point the mouse is it.
+            I then round it, and draw a square there just to indicate the cell the player is drawing on. The addon uses a 2D array to store cells, allowing you to 
+            "draw" walls out. Once a cell has been updated, it scans around itself, and changes the models of its surrounding cells (and itself) accordingly.
+    </p>
+    <p class = "overviewText">
+        The addon also includes a "goodies" folder, that includes things like a triplanar shader so textures don't repeat over each wall, pre-built wall models to 
+        help the user get started and more. The triplanar shader uses the world-space vertex position rather than the UV to sample the texture, meaning the texture always 
+        stays unstretched no matter the size of the wall.
+    </p>
+</div>

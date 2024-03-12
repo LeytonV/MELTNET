@@ -1,0 +1,48 @@
+<div class = "section">
+    <p class = "overviewText">HEADACHE is a brutal FPS with roguelike elements, inspired by the ultraviolence of the Hotline Miami series.
+        The goal of the project was to make the player think and act on their feet, encouraging improvisation and recklessness.
+        Everything in the game was designed, programmed, modelled, animated, and generally created by me.
+    </p>
+    <div class = "titleLabel">
+        <p class = "title">THE NITTY GRITTY</p>
+    </div>
+    <p class = "overviewText">The game uses a texture-to-level system, which I explain about in the next section. As well as some interesting shaders for the artstyle. HEADACHE was more of a design challenge for me to create a first-person Hotline Miami, which is a challenge
+        as Hotline Miami's whole gameplay loop, and the experience that comes from it, relies on the player being able to see top down, and see threats through walls
+        thus being able to plan around them. HEADACHE resolves this by relying on the player's instincts, as well as using audio, and directional markers when surrounded by enemies.
+    </p>
+</div>
+
+<div class = "section">
+    <div class = "titleLabel">
+        <p class = "title">THE LEVEL GENERATOR</p>
+    </div>
+    <p class = "overviewText">Every level in HEADACHE is randomly generated. This is mainly to keep things replayable. The final level is assembled by creating a 3x3 grid, and creating a route for the level to follow (fig.1)
+        Once that's complete, the level is created by generating rooms for each tile in the route. These rooms exist on the hard drive as 49x49 textures (fig.2), in which the game walks through, and based on the pixel's color, spawns walls, glass, doors, enemies, etc. (fig.3)
+    </p>
+
+    <div class = "triplePic">
+        <div class = pictureContainer>
+            <img class = "picture" src="assets/projects/headache/LevelGen1.png">
+            <p class = "picCaption">(fig.1) EXAMPLE ROUTE THROUGH A LEVEL</p>
+        </div>
+        <div class = pictureContainer>
+            <img class = "picture" src="assets/projects/headache/LevelGen2.png">
+            <p class = "picCaption">(fig.2) RAW DATA FOR A EXAMPLE LEVEL. THESE ARE STORED IN 49x49 PNGS TO BE READ AND CONSTRUCTED IN REALTIME</p>
+        </div>
+        <div class = pictureContainer>
+            <img class = "picture" src="assets/projects/headache/LevelGen3.png">
+            <p class = "picCaption">(fig.3) THE IN-GAME LEVEL GENERATED FROM THE LEVEL TEXTURE (fig.2)</p>
+        </div>
+    </div>
+</div>
+
+<div class = "section">
+    <div class = "titleLabel">
+        <p class = "title">THE SHADERS</p>
+    </div>
+    <p class = "overviewText">HEADACHE's artstyle required a lot of shaders to be written. The main ones are the dither shader, and the outline shader.
+        The dither shader (which causes these pixel-ly effects over dark areas) was created by converting the pixel's color into a HSV color, then taking the Value of that HSV and running it through a Bayer dither algorithm to alternate the pixels based on the value. After that the final output color is a blend between black, and yellow, based on that value.
+        The outlines are created by checking each pixel's surrounding pixels, and anywhere that the distance to each pixel's coordinate exceeds a certain value, is where a outline is drawn.
+    </p>
+    <img class = "singleImage" src="assets\projects\headache\media\shaders.jpg" alt="">
+</div>

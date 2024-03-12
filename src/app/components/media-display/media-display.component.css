@@ -1,0 +1,67 @@
+:host
+{
+    display: flex;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.media
+{
+    display: flex;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 1000px;
+}
+
+.mediaView
+{
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+}
+
+.image
+{
+    width: 100%;
+}
+
+.mediaControls
+{
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right:0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mediaControl
+{
+    outline: none;
+    border:none;
+    opacity: 0;
+    font-weight: 800;
+    font-size: 25px;
+    width: 50px;
+
+    background-color: #272727;
+    color:white;
+
+    transition:opacity .1s linear;
+    cursor: pointer;
+}
+
+.mediaControl:hover
+{
+    opacity: .75;
+}
+
+.media:hover .mediaControl:not(.mediaControl:hover)
+{
+    opacity: .5;
+}

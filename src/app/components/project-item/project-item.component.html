@@ -1,0 +1,6 @@
+<div (click)="openProject()" class="item" [attr.tags]="referenceProject?.tags">
+    <p class = "itemName">"{{referenceProject?.name}}"</p>
+    <div class="imageFrame">
+        <div class="itemImage" style="--imageURL: url({{this.getThumbnail}})"></div>
+    </div>
+</div>

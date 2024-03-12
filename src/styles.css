@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'MADE';
+    src: url('Assets/Fonts/MADE.OTF');
+}
+
+@font-face {
+    font-family: 'Consola';
+    src: url('Assets/Fonts/CONSOLA.TTF');
+}
+
+body
+{
+    background-color: black;
+    margin: 0;
+
+    --keyYellow: #ffea00;
+}

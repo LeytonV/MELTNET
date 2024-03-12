@@ -1,0 +1,43 @@
+{
+    "games": [
+     {
+      "name": "Headache",
+      "resourcesFolder": "assets/projects/headache",
+      "tags": "modelling-animation-procgen-shaders",
+      "thumbAnimated": true,
+      "coverAnimated": true
+     },
+     {
+      "name": "Superfrag",
+      "resourcesFolder": "assets/projects/superfrag",
+      "tags": "photon-shaders-vfx-animation",
+      "thumbAnimated": true,
+      "coverAnimated": true
+     }
+    ],
+    "tools": [
+     {
+      "name": "Wallpen",
+      "resourcesFolder": "assets/projects/wallpen",
+      "tags": "editor scripting-c#-unity",
+      "thumbAnimated": true,
+      "coverAnimated": true
+     }
+    ],
+    "others": [
+     {
+      "name": "Island Generator",
+      "resourcesFolder": "assets/projects/islandGenerator",
+      "tags": "modelling-animation-procgen-shaders",
+      "thumbAnimated": false,
+      "coverAnimated": false
+     },
+     {
+      "name": "CS2 Smoke",
+      "resourcesFolder": "assets/projects/cs2smoke",
+      "tags": "photon-shaders-vfx-animation",
+      "thumbAnimated": false,
+      "coverAnimated": false
+     }
+    ]
+   }
